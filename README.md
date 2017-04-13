@@ -9,9 +9,6 @@ ui-tree-extend
 
 ## ui-tree-style
 
-### Example
-[https://jsfiddle.net/TakuMiao/z09momk5/](https://jsfiddle.net/TakuMiao/z09momk5/)
-
 ### Markup
 ```html
 <link rel="stylesheet" href="./node_modules/angular-ui-tree/dist/angular-ui-tree.min.css" />
@@ -20,9 +17,6 @@ ui-tree-extend
 
 
 ## ui-tree-adapter
-
-### Example
-[https://jsfiddle.net/TakuMiao/z09momk5/](https://jsfiddle.net/TakuMiao/z09momk5/)
 
 ### Markup
 ```html
