@@ -1,0 +1,18 @@
+{
+  "name": "ui-tree-extend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "angular-ui-tree": "^2.22.5",
+    "checklist-model": "^0.11.0"
+  }
+}
