@@ -1,1 +1,210 @@
-.tree{position:relative;font-size:13px;margin:0;padding:0;overflow:visible;-moz-user-select:none;-webkit-user-select:none;user-select:none}.tree:before{content:none}.tree>ol>li,.tree>ul>li{margin-left:0!important}.tree ol,.tree ul{padding:0}.tree li,.tree ol,.tree ul{display:block;margin:0;list-style:none}.tree li{display:block;min-height:20px;line-height:20px;white-space:nowrap;min-width:20px;background-position:-90px 0}.tree li i.tree-toggle-icon{margin-right:-4px;*margin-right:0;float:left;*float:none}.tree i.tree-toggle-icon{position:relative;display:inline-block;text-decoration:none;width:20px!important;height:20px!important;padding:0;text-align:center;cursor:pointer;margin-right:3px;vertical-align:top}.tree .tree-label{min-height:20px}.tree .tree-node-indent{width:20px;height:20px;text-align:center;display:inline-block;vertical-align:text-top}.tree .tree-node-anchor{display:block;margin:0 0 0 20px;line-height:20px;color:#000;white-space:nowrap;text-decoration:none;cursor:pointer;padding-left:0;padding-right:6px}.tree .tree-node-anchor:hover{background:#f5f5f5}.tree .tree-node-anchor:focus{outline:0}.tree .tree-node-anchor .tree-node-content{padding:0 6px;text-decoration:none;color:inherit}.tree .tree-node-anchor.checked{background:#fce6a2}.tree .tree-node-anchor.disabled{background:0 0;cursor:not-allowed;color:#999}.tree .tree-node-anchor.disabled *{color:#999!important}.tree i.tree-toggle-icon,.tree li{background-image:url(../img/default.png)}.tree li{background-repeat:repeat-y}.tree li:last-child{background-image:url(../img/default.png);background-position:-90px -70px;background-repeat:no-repeat}.tree .tree-handle>i.tree-toggle-icon{background-position:-36px 0}.tree .tree-handle-open>i.tree-toggle-icon{background-position:-72px 0}.tree .tree-handle-closed>i.tree-toggle-icon{background-position:-54px 0}.tree.tree-no-dots li,.tree.tree-no-dots li:last-child{background:no-repeat}.tree.tree-no-dots .tree-handle>i.tree-toggle-icon{background-position:-72px -36px}.tree.tree-no-dots .tree-handle-open>i.tree-toggle-icon{background-position:-18px 0}.tree.tree-no-dots .tree-handle-closed>i.tree-toggle-icon{background-position:0 0}.tree.tree-arrow i.tree-toggle-icon{margin-top:-2px}.tree.tree-arrow i.tree-toggle-icon,.tree.tree-arrow li{background-image:url(../img/arrow.png)}.tree.tree-arrow li{background-position:-292px -4px;background-repeat:repeat-y}.tree.tree-arrow li:last-child{background:no-repeat}.tree.tree-arrow .tree-handle>i.tree-toggle-icon{background-position:-68px -4px}.tree.tree-arrow .tree-handle-open>i.tree-toggle-icon{background-position:-132px -4px}.tree.tree-arrow .tree-handle-closed>i.tree-toggle-icon{background-position:-100px -4px}.tree.tree-arrow.tree-no-dots i.tree-toggle-icon,.tree.tree-arrow.tree-no-dots li{background-image:url(../img/arrow.png)}.tree.tree-arrow.tree-no-dots li,.tree.tree-arrow.tree-no-dots li:last-child{background-image:url(../img/arrow.png);background-position:-320px -320px;background-repeat:no-repeat}.tree.tree-arrow.tree-no-dots .tree-handle>i.tree-toggle-icon{background-position:-144px -72px}.tree.tree-arrow.tree-no-dots .tree-handle-open>i.tree-toggle-icon{background-position:-36px -4px}.tree.tree-arrow.tree-no-dots .tree-handle-closed>i.tree-toggle-icon{background-position:-4px -4px}.tree.tree-lg li,.tree.tree-lg li .tree-node-anchor{line-height:30px}.tree.tree-lg li:last-child{background-image:url(../img/default.png);background-position:-90px -60px;background-repeat:no-repeat}.tree.tree-lg i.tree-toggle-icon{margin-top:6px}.tree.tree-arrow.tree-lg li:last-child{background-image:url(../img/arrow.png);background-position:-292px -80px;background-repeat:no-repeat}.tree.tree-arrow.tree-lg ins{margin-top:2px}.tree.tree-lg.tree-no-dots li,.tree.tree-lg.tree-no-dots li:last-child{background:no-repeat}
+.tree {
+  position: relative;
+  font-size: 13px;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.tree:before {
+  content: none;
+}
+.tree > ul > li,
+.tree > ol > li {
+  margin-left: 0 !important;
+}
+.tree ul,
+.tree ol {
+  padding: 0;
+}
+.tree ul,
+.tree ol,
+.tree li {
+  display: block;
+  margin: 0;
+  list-style: none;
+}
+.tree li {
+  display: block;
+  min-height: 20px;
+  line-height: 20px;
+  white-space: nowrap;
+  min-width: 20px;
+  background-position: -90px 0;
+  background-repeat: repeat-y;
+}
+.tree li i.tree-toggle-icon {
+  margin-right: -4px;
+  *margin-right: 0;
+  float: left;
+  *float: none;
+}
+.tree i.tree-toggle-icon {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  width: 20px !important;
+  height: 20px !important;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  margin-right: 3px;
+  vertical-align: top;
+}
+.tree .tree-label {
+  min-height: 20px;
+}
+.tree .tree-node-indent {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: text-top;
+}
+.tree .tree-node-anchor {
+  display: block;
+  margin: 0;
+  margin-left: 20px;
+  line-height: 20px;
+  color: black;
+  white-space: nowrap;
+  text-decoration: none;
+  cursor: pointer;
+  padding-left: 0;
+  padding-right: 6px;
+}
+.tree .tree-node-anchor:hover {
+  background: #f5f5f5;
+}
+.tree .tree-node-anchor:focus {
+  outline: none;
+}
+.tree .tree-node-anchor .tree-node-content {
+  padding: 0 6px;
+  text-decoration: none;
+  color: inherit;
+}
+.tree .tree-node-anchor.checked {
+  background: #fce6a2;
+}
+.tree .tree-node-anchor.disabled {
+  background: none;
+  cursor: not-allowed;
+  color: #999;
+}
+.tree .tree-node-anchor.disabled * {
+  color: #999 !important;
+}
+.tree li,
+.tree i.tree-toggle-icon {
+  background-image: url("../img/default.png");
+}
+.tree li {
+  background-repeat: repeat-y;
+}
+.tree li:last-child {
+  background-image: url("../img/default.png");
+  background-position: -90px -70px;
+  background-repeat: no-repeat;
+}
+.tree .tree-handle > i.tree-toggle-icon {
+  background-position: -36px 0;
+}
+.tree .tree-handle-open > i.tree-toggle-icon {
+  background-position: -72px 0;
+}
+.tree .tree-handle-closed > i.tree-toggle-icon {
+  background-position: -54px 0;
+}
+.tree.tree-no-dots li,
+.tree.tree-no-dots li:last-child {
+  background: 0 0;
+  background-repeat: no-repeat;
+}
+.tree.tree-no-dots .tree-handle > i.tree-toggle-icon {
+  background-position: -72px -36px;
+}
+.tree.tree-no-dots .tree-handle-open > i.tree-toggle-icon {
+  background-position: -18px 0;
+}
+.tree.tree-no-dots .tree-handle-closed > i.tree-toggle-icon {
+  background-position: 0  0;
+}
+.tree.tree-arrow i.tree-toggle-icon {
+  margin-top: -2px;
+}
+.tree.tree-arrow li,
+.tree.tree-arrow i.tree-toggle-icon {
+  background-image: url("../img/arrow.png");
+}
+.tree.tree-arrow li {
+  background-position: -292px -4px;
+  background-repeat: repeat-y;
+}
+.tree.tree-arrow li:last-child {
+  background: 0 0;
+  background-repeat: no-repeat;
+}
+.tree.tree-arrow .tree-handle > i.tree-toggle-icon {
+  background-position: -68px -4px;
+}
+.tree.tree-arrow .tree-handle-open > i.tree-toggle-icon {
+  background-position: -132px -4px;
+}
+.tree.tree-arrow .tree-handle-closed > i.tree-toggle-icon {
+  background-position: -100px -4px;
+}
+.tree.tree-arrow.tree-no-dots li,
+.tree.tree-arrow.tree-no-dots i.tree-toggle-icon {
+  background-image: url("../img/arrow.png");
+}
+.tree.tree-arrow.tree-no-dots li,
+.tree.tree-arrow.tree-no-dots li:last-child {
+  background-image: url("../img/arrow.png");
+  background-position: -320px -320px;
+  background-repeat: no-repeat;
+}
+.tree.tree-arrow.tree-no-dots .tree-handle > i.tree-toggle-icon {
+  background-position: -144px -72px;
+}
+.tree.tree-arrow.tree-no-dots .tree-handle-open > i.tree-toggle-icon {
+  background-position: -36px -4px;
+}
+.tree.tree-arrow.tree-no-dots .tree-handle-closed > i.tree-toggle-icon {
+  background-position: -4px -4px;
+}
+.tree.tree-lg li {
+  line-height: 30px;
+}
+.tree.tree-lg li .tree-node-anchor {
+  line-height: 30px;
+}
+.tree.tree-lg li:last-child {
+  background-image: url("../img/default.png");
+  background-position: -90px -60px;
+  background-repeat: no-repeat;
+}
+.tree.tree-lg i.tree-toggle-icon {
+  margin-top: 6px;
+}
+.tree.tree-arrow.tree-lg li:last-child {
+  background-image: url("../img/arrow.png");
+  background-position: -292px -80px;
+  background-repeat: no-repeat;
+}
+.tree.tree-arrow.tree-lg ins {
+  margin-top: 2px;
+}
+.tree.tree-lg.tree-no-dots li,
+.tree.tree-lg.tree-no-dots li:last-child {
+  background: 0 0;
+  background-repeat: no-repeat;
+}
+.angular-ui-tree-placeholder {
+  background: #f0f9ff;
+  border: 1px dashed #bed2db;
+  left: -1px;
+  background-image: none;
+}
