@@ -9,17 +9,15 @@ ui-tree-extend
 
 ## ui-tree-style
 
+### Example
+
+[https://jsfiddle.net/TakuMiao/qb6ys45L/](https://jsfiddle.net/TakuMiao/qb6ys45L/)
+
 ### Markup
 ```html
 <link rel="stylesheet" href="./node_modules/angular-ui-tree/dist/angular-ui-tree.min.css" />
 <link rel="stylesheet" href="./src/ui-tree-style.css" />
-```
 
-
-## ui-tree-adapter
-
-### Markup
-```html
 <!-- Nested node template -->
 <script type="text/ng-template" id="nodes_renderer.html">
   <div ui-tree-handle class="tree-handle"
@@ -29,33 +27,38 @@ ui-tree-extend
     }">
     <i class="tree-toggle-icon" data-nodrag="" ng-click="toggle(this)"></i>    
     <div class="tree-node-anchor">
-      <a class="pull-right" data-nodrag ng-click="vm.remove(this, $remove)">
-        <span class="glyphicon glyphicon-remove"></span>
-      </a>
-      <a class="pull-right" data-nodrag ng-click="vm.newSubItem(this, $add)" style="margin-right: 8px;">
-        <span class="glyphicon glyphicon-plus"></span>
-      </a>
-      <a class="pull-right" data-nodrag ng-click="vm.update(this)" style="margin-right: 8px;">
-        <span class="glyphicon glyphicon-edit"></span>
-      </a>
       <div class="tree-node-content">
         {{node.title}}
       </div>
     </div>
   </div>
   <ol ui-tree-nodes="" ng-model="node.nodes" ng-class="{hidden: collapsed}">
-    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'" ng-show="vm.visible(node)">
+    <li ng-repeat="node in node.nodes" ui-tree-node ng-include="'nodes_renderer.html'">
     </li>
   </ol>
 </script>
 
-<div ui-tree=""
+<div ui-tree="" class="tree">
+  <ul ui-tree-nodes="" ng-model="vm.data">
+    <li ng-repeat="node in vm.data" ui-tree-node class="tree-node" 
+      ng-include="'nodes_renderer.html'"></li>
+  </ul>
+</div>
+```
+
+
+## ui-tree-adapter
+
+### Example
+
+[https://jsfiddle.net/TakuMiao/c47pkwek/](https://jsfiddle.net/TakuMiao/c47pkwek/)
+
+### Markup
+```html
+<div ui-tree="" class="tree"
   ui-tree-adapter ng-model="vm.flattenData"
-  id-attr="id"
-  parent-attr="pid"
-  root-id="null"
-  class="tree">
-  <ul ui-tree-nodes="" ng-model="$data">
+  id-attr="id" parent-attr="pid" root-id="null">
+  <ul ui-tree-nodes="" ng-model="$data"><!-- use $data instead of origin data -->
     <li ng-repeat="node in $data" ui-tree-node class="tree-node" 
       ng-include="'nodes_renderer.html'"></li>
   </ul>
@@ -82,3 +85,9 @@ angular
     ]
   })]
 ```
+
+### ui-tree-adapter options
+- `ng-model` *(Array)* - the node array
+- `root-id` *(Number | Null)* - specify the root of node
+- `id-attr` *(String)* - id attribute of node
+- `parent-attr` *(String)* - parent attribute of node
