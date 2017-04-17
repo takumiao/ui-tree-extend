@@ -81,6 +81,13 @@
 .tree .tree-node-anchor:focus {
   outline: none;
 }
+.tree .tree-node-anchor .active {
+  background: #428bca;
+  color: #fff;
+}
+.tree .tree-node-anchor .active:hover {
+  background: #428bca;
+}
 .tree .tree-node-anchor .tree-node-content {
   padding: 0 6px;
   text-decoration: none;

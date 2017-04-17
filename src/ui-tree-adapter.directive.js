@@ -2,7 +2,7 @@ angular
   .module('ui.tree')
   .directive('uiTreeAdapter', ['$parse', '$timeout', function($parse, $timeout) {
     return {
-      restrice: 'A',
+      restrict: 'A',
       require: 'ngModel',
       compile: function(tElem, tAttrs) {
         var idAttr = tAttrs.idAttr || 'id';
