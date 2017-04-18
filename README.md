@@ -1,10 +1,12 @@
 ui-tree-extend
 ==============
 
+Extension of `ui-tree` directive
+
 ## Dependencies
 
-- angular (1.2+)
-- angular-ui-tree
+- angular
+- [angular-ui-tree](https://github.com/angular-ui-tree/angular-ui-tree)
 
 
 ## ui-tree-style
@@ -87,7 +89,8 @@ angular
 ```
 
 ### ui-tree-adapter options
-- `ng-model` *(Array)* - the node array
-- `root-id` *(Number | Null)* - specify the root of node
+- `ng-model` *(Array)* - the flatten node array
+- `root-id` *(Number | Null)* - specify the root node id
 - `id-attr` *(String)* - id attribute of node
 - `parent-attr` *(String)* - parent attribute of node
+- `show-root` *(Boolean)* - show root node
