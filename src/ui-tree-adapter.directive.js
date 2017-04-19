@@ -57,11 +57,11 @@ angular
               var sortedNodes = destNodeScope.$modelValue;
               var sortedIndex = -1;
               // adjust parent of node
-              sourceNodeScope.$modelValue.pid = destNodeScope.$nodeScope ? destNodeScope.$nodeScope.$modelValue.id : rootId
+              sourceNodeScope.$modelValue[parentAttr] = destNodeScope.$nodeScope ? destNodeScope.$nodeScope.$modelValue[idAttr] : rootId
               // adjust original pos of flatten nodes by sorted nodes           
               for (var i = 0, l = ngModelCtrl.$modelValue.length; i < l; i++) {
                 var node = ngModelCtrl.$modelValue[i];
-                if (node.pid == sourceNodeScope.$modelValue.pid) {
+                if (node[parentAttr] == sourceNodeScope.$modelValue[parentAttr]) {
                   var sortedNode = sortedNodes[++sortedIndex];
                   node !== sortedNode && ngModelCtrl.$modelValue.splice(i, 1, sortedNode);
                 }
@@ -80,11 +80,11 @@ angular
             });
 
             list.forEach(function(obj) {
+              var parent = lookup[obj[parentAttr]]
+              parent && parent[childrenAttr].push(obj);
+
               if (obj[showRoot ? idAttr : parentAttr] == rootId) {
                 treeList.push(obj);
-              } else {
-                var parent = lookup[obj[parentAttr]]
-                parent && parent[childrenAttr].push(obj);
               }
             });
             return treeList;
