@@ -10,12 +10,12 @@ angular
         var childrenAttr = 'nodes';
       
         return function postLink(scope, elem, attrs, ngModelCtrl) {
-          var rootId = angular.isDefined(attrs.rootId) ? $parse(attrs.rootId)(scope) : null;
+          var rootId = $parse(attrs.rootId)(scope);
+          // Options: show the root of node
           var showRoot = false;
-
-          // Add Boolean support
-          if (angular.isDefined(tAttrs.showRoot)) {
-            showRoot = $parse(tAttrs.showRoot)(scope);
+          if (angular.isDefined(attrs.showRoot)) {
+            // Add Boolean support
+            showRoot = $parse(attrs.showRoot)(scope);
             if (showRoot === void 0) showRoot = true;
           }
 
