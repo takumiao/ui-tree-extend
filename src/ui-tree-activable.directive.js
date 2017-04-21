@@ -9,18 +9,18 @@ angular.module('ui.tree')
           var activeNode = activeNodeGetter(scope);
 
           // Events:
-          var onBeforeActive = $parse(attrs.onBeforeActive)(scope) || angular.noop;
-          var onActive = $parse(attrs.onActive)(scope) || angular.noop;
+          var onBeforeActiveCallback = $parse(attrs.onBeforeActive);
+          var onActiveCallback = $parse(attrs.onActive);
 
           scope.$isActive = function(node) {
             return activeNode === node;
           };
 
           scope.$activate = function(nodeScope) {
-            if (onBeforeActive(nodeScope) !== false) {
+            if (onBeforeActiveCallback(scope, {$scope: nodeScope}) !== false) {
               activeNode = nodeScope.$modelValue;
               activeNodeSetter && activeNodeSetter(scope, activeNode);
-              onActive(nodeScope);
+              onActiveCallback(scope, {$scope: nodeScope});
             }
           };
         }
