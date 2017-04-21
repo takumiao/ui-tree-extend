@@ -12,6 +12,12 @@ angular.module('ui.tree')
           var onBeforeActiveCallback = $parse(attrs.onBeforeActive);
           var onActiveCallback = $parse(attrs.onActive);
 
+          scope.$watch(attrs.activeNode, function(newValue, oldValue) {
+            if (newValue !== oldValue) {
+              activeNode = newValue;
+            }
+          });
+
           scope.$isActive = function(node) {
             return activeNode === node;
           };
