@@ -57,6 +57,7 @@ Extension of `ui-tree` directive
 
 ### Markup
 ```html
+<!-- add ui-tree-adapter attributes to enable directive -->
 <div ui-tree="" class="tree"
   ui-tree-adapter ng-model="vm.flattenData"
   id-attr="id" parent-attr="pid" root-id="null">
@@ -94,3 +95,47 @@ angular
 - `id-attr` *(String)* - id attribute of node
 - `parent-attr` *(String)* - parent attribute of node
 - `show-root` *(Boolean)* - show root node
+
+
+## ui-tree-activable
+
+### Example
+
+[https://jsfiddle.net/TakuMiao/qfehc9gy/](https://jsfiddle.net/TakuMiao/qfehc9gy/)
+
+### Markup
+```html
+<!-- add ui-tree-activable attributes to enable directive -->
+<div ui-tree  
+  ui-tree-activable
+  active-node="vm.activeNode"
+  on-before-active="vm.onBeforeActive($scope)"
+  on-active="vm.onActive($scope)">
+  <ol ui-tree-nodes ng-model="vm.data">
+    <li ng-repeat="node in vm.data" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+  </ol>
+</div>
+```
+
+### Javascript
+```js
+angular
+  .module('myApp', ['ui.tree'])
+  .controller('MainController', [function() {
+    vm.activeNode = null;
+    vm.onBeforeActive = function(scope) {
+      if (scope.$modelValue.id == 1) {
+        alert('you can\'t select this node')
+        return false;
+      }
+    };
+    vm.onActive = function(scope) {
+      console.log(scope.$modelValue);
+    };
+  })]
+```
+
+### ui-tree-activable options
+- `active-node` *(Object)*
+- `on-active` *(Function)* - this function will be invoked after the node is active.
+- `on-before-active` *(Function)* - this function will be invoked before the node is active, you can return false to prevent the node is activated
