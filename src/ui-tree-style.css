@@ -11,13 +11,13 @@
 .tree:before {
   content: none;
 }
+.tree > ul,
+.tree > ol {
+  padding-left: 0 !important;
+}
 .tree > ul > li,
 .tree > ol > li {
   margin-left: 0 !important;
-}
-.tree ul,
-.tree ol {
-  padding: 0;
 }
 .tree ul,
 .tree ol,

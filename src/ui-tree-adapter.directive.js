@@ -4,13 +4,14 @@ angular
     return {
       restrict: 'A',
       require: 'ngModel',
+      scope: true,
       compile: function(tElem, tAttrs) {
         var idAttr = tAttrs.idAttr || 'id';
         var parentAttr = tAttrs.parentAttr || 'pid';
         var childrenAttr = 'nodes';
       
         return function postLink(scope, elem, attrs, ngModelCtrl) {
-          var rootId = $parse(attrs.rootId)(scope);
+          var rootIdGetter = $parse(attrs.rootId);
           // Options: show the root of node
           var showRoot = false;
           if (angular.isDefined(attrs.showRoot)) {
@@ -35,18 +36,18 @@ angular
           };
           scope.$watch(attrs.rootId, function(newValue, oldValue) {
             if (newValue === oldValue) return;
-            rootId = newValue;
-            scope.$data = treeify(ngModelCtrl.$modelValue, rootId, idAttr, parentAttr, childrenAttr, showRoot);
+            console.log(newValue, oldValue, 'newValue', rootIdGetter(scope));
+            scope.$data = treeify(ngModelCtrl.$modelValue, rootIdGetter(scope), idAttr, parentAttr, childrenAttr, showRoot);
           });
           scope.$watch(attrs.showRoot, function(newValue, oldValue) {
             if (newValue === oldValue) return;
             showRoot = !!newValue;
-            scope.$data = treeify(ngModelCtrl.$modelValue, rootId, idAttr, parentAttr, childrenAttr, showRoot);
+            scope.$data = treeify(ngModelCtrl.$modelValue, rootIdGetter(scope), idAttr, parentAttr, childrenAttr, showRoot);
           });
           scope.$watchCollection(function() {
             return ngModelCtrl.$modelValue
           }, function(newValue, oldValue) {
-            scope.$data = treeify(newValue, rootId, idAttr, parentAttr, childrenAttr, showRoot);
+            scope.$data = treeify(newValue, rootIdGetter(scope), idAttr, parentAttr, childrenAttr, showRoot);
           });
 
           $timeout(function() {
@@ -57,7 +58,7 @@ angular
               var sortedNodes = destNodeScope.$modelValue;
               var sortedIndex = -1;
               // adjust parent of node
-              sourceNodeScope.$modelValue[parentAttr] = destNodeScope.$nodeScope ? destNodeScope.$nodeScope.$modelValue[idAttr] : rootId
+              sourceNodeScope.$modelValue[parentAttr] = destNodeScope.$nodeScope ? destNodeScope.$nodeScope.$modelValue[idAttr] : rootIdGetter(scope)
               // adjust original pos of flatten nodes by sorted nodes           
               for (var i = 0, l = ngModelCtrl.$modelValue.length; i < l; i++) {
                 var node = ngModelCtrl.$modelValue[i];
